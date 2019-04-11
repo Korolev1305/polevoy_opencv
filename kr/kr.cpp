@@ -25,7 +25,7 @@ int main()
                 rectangle(img, Point(k,z), Point(k+img.rows/3,z+img.rows/2),Scalar(colorRect[index]),FILLED);
                 index++;
             }
-                k+=img.rows/3;
+            k+=img.rows/3;
         }
         z+=img.rows/2;
         k=0;
@@ -49,22 +49,23 @@ int main()
     Mat resFirst;
     Mat resSecond;
     const float kernelData1[] = {
-        1.0f, 0,
-        0, -1.0f};
+        1.0, 0,
+        0, -1.0};
     const Mat kernel1(2, 2, CV_32FC1,(float *)kernelData1);
-    filter2D(img, resFirst, -1, kernel1);
+    filter2D(img, resFirst, -1, kernel1, Point(-1, -1), 128, BORDER_REPLICATE);
     
     const float kernelData2[] = {
-        0, 1.0f,
-        -1.0f, 0};
+        0, 1.0,
+        -1.0, 0};
     const Mat kernel2(2, 2, CV_32FC1,(float *)kernelData2);
-    filter2D(img, resSecond, -1, kernel2);
+    filter2D(img, resSecond, -1, kernel2, Point(-1, -1), 128, BORDER_REPLICATE);
     
-    imshow("after filter", resFirst);
+    imshow("after filter1", resFirst);
     imshow("after filter2", resSecond);
     imshow("result",img);
     waitKey();
     destroyAllWindows();
     return 0;
+}
 
 }
