@@ -1,10 +1,4 @@
-//
-//  main.cpp
-//  testopencv
-//
-//  Created by –ö–æ—Ä–æ–ª–µ–≤ –ú–∞–∫—Å–∏–º –ê–ª–µ–∫—Å–µ–µ–≤–∏—á on 21/02/2019.
-//  Copyright ¬© 2019 –ö–æ—Ä–æ–ª–µ–≤ –ú–∞–∫—Å–∏–º –ê–ª–µ–∫—Å–µ–µ–≤–∏—á. All rights reserved.
-//
+
 
 #include <opencv2/opencv.hpp>
 
@@ -13,22 +7,22 @@ using namespace std;
 
 int main()
 {
-    int windowSize;
-    int imageNumber;
-    int sigma;
-    cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –∏–∑–æ–±—Ä–∞–∂–µ–Ω–∏—è (1 –∏–ª–∏ 2):" << endl;
+    int windowSize = 6;
+    int imageNumber = 1;
+    int sigma = 255;
+    cout << "Ç‚Â‰ËÚÂ ÌÓÏÂ ËÁÓ·‡ÊÂÌËﬂ (1 ËÎË 2):" << endl;
     cin >> imageNumber;
-    cout << "–í–≤–µ–¥–∏—Ç–µ —Ä–∞–∑–º–µ—Ä —Å—Ç–æ—Ä–æ–Ω—ã (–Ω–µ—á–µ—Ç–Ω–æ–µ —á–∏—Å–ª–æ):" << endl;
+    cout << "Ç‚Â‰ËÚÂ ‡ÁÏÂ ÒÚÓÓÌ˚ (ÌÂ˜ÂÚÌÓÂ ˜ËÒÎÓ):" << endl;
     cin >> windowSize;
-    cout << "–í–≤–µ–¥–∏—Ç–µ —á–∏—Å–ª–æ Sigma (–æ—Ç 0 –¥–æ 255):" << endl;
+    cout << "Ç‚Â‰ËÚÂ ˜ËÒÎÓ Sigma (ÓÚ 0 ‰Ó 255):" << endl;
     cin >> sigma;
     
     Mat image1;
     if(imageNumber == 1){
-        image1 = imread("/Users/ewigkeit/Downloads/Using-an-edge-indicator-based-weights-our-adaptive-TV-regularization-obtains-better-noise_Q320.jpg");
+        image1 = imread("Using-an-edge-indicator-based-weights-our-adaptive-TV-regularization-obtains-better-noise_Q320.jpg");
     }
     if(imageNumber == 2){
-        image1 = imread("/Users/ewigkeit/Downloads/217021.fig.005a.jpg");
+        image1 = imread("217021.fig.005a.jpg");
     }
     
     

@@ -8,7 +8,7 @@ using namespace std;
 
 
 int main() {
-    Mat image1 = imread("img.jpg");
+    Mat image1 = imread("/Users/ewigkeit/polevoy_opencv/dz2/img.jpg");
     Mat image2;
     
     if (image1.empty())
@@ -30,11 +30,28 @@ int main() {
     
     Mat newImage;
     
+    int rows = 256*15;
+    
+    int binSize = 15;
+    
+    int cols = 256* binSize;
+    
+    int intensivityArray1[256]= {0};
+    
+    int intensivityArray2[256]= {0};
+    
+    double saturation2;
+    
     while (true)
     {
         double saturation = sliderValue*2-100;
         image1.convertTo(image2, CV_8UC1,1, saturation);
         hconcat(image1, image2, newImage);
+        
+        
+        //Mat3b dst = Mat3b(rows, cols, Vec3b(0,0,0));
+        
+        
         
         vector<Mat> bgr_image;
         split(image2, bgr_image);
@@ -62,8 +79,43 @@ int main() {
                  Scalar(0, 0, 255), 2, 8, 0);
         }
         
+        Mat dst(rows, cols, CV_8UC3, Scalar(0, 0, 0));
+        
+        for(int i=0;i<256;i++){
+            intensivityArray1[i]=0;
+            intensivityArray2[i]=0;
+        }
+        
+        
+        
+        for(int j=0;j<image1.rows;j++)
+        {
+            for (int i=0;i<image1.cols;i++)
+            {
+                int number = (int) image1.at<uchar>(j,i);
+                ++intensivityArray1[number];
+            }
+        }
+        
+        for(int j=0;j<image2.rows;j++)
+        {
+            for (int i=0;i<image2.cols;i++)
+            {
+                int number = (int) image2.at<uchar>(j,i);
+                ++intensivityArray2[number];
+            }
+        }
+        
+        for (int i = 0; i < 256; ++i)
+        {
+            circle(dst, Point(intensivityArray1[i],intensivityArray2[i]-30), 5, Scalar(0, 0, 255),FILLED);
+            
+        }
+        
+        //imshow("test",dst);
         imshow("Results", newImage);
         imshow("Histogram", histImage);
+        imshow("dst",dst);
         
         int iKey = waitKey(50);
         if (iKey == 27)
