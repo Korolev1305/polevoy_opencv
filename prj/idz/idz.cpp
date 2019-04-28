@@ -12,31 +12,31 @@ int main()
     int sigma = -1;
     while(imageNumber > 2 or imageNumber < 0)
     {
-        cout << "‚âåäèòå íîìåð èçîáðàæåíèß (1 Ð äîìèê èëè 2 Ð îâîùè):" << endl;
-        cin >> imageNumber;
-        if (imageNumber > 2 or imageNumber < 0)
-        {
-            cout << "‚âåäåíî íåâåðíîå ÷èñëî" << endl;
-        }
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ (1 â€“ Ð´Ð¾Ð¼Ð¸Ðº Ð¸Ð»Ð¸ 2 â€“ Ð¾Ð²Ð¾Ñ‰Ð¸):" << endl;
+    cin >> imageNumber;
+    if (imageNumber > 2 or imageNumber < 0)
+    {
+        cout << "Ð’Ð²ÐµÐ´ÐµÐ½Ð¾ Ð½ÐµÐ²ÐµÑ€Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾" << endl;
+    }
     }
     
     while(windowSize % 2 == 0)
     {
-        cout << "‚âåäèòå ðàçìåð ñòîðîíû (íå÷åòíîå ÷èñëî):" << endl;
+        cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñ‹ (Ð½ÐµÑ‡ÐµÑ‚Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾):" << endl;
         cin >> windowSize;
         if (windowSize % 2 == 0)
         {
-            cout << "‚âåäåíî íåâåðíîå ÷èñëî" << endl;
+            cout << "Ð’Ð²ÐµÐ´ÐµÐ½Ð¾ Ð½ÐµÐ²ÐµÑ€Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾" << endl;
         }
     }
     
     while(sigma < 0 or sigma > 255)
     {
-        cout << "‚âåäèòå ÷èñëî Sigma (îò 0 äî 255):" << endl;
+        cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Sigma (Ð¾Ñ‚ 0 Ð´Ð¾ 255):" << endl;
         cin >> sigma;
         if (sigma < 0 or sigma > 255)
         {
-            cout << "‚âåäåíî íåâåðíîå ÷èñëî" << endl;
+            cout << "Ð’Ð²ÐµÐ´ÐµÐ½Ð¾ Ð½ÐµÐ²ÐµÑ€Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾" << endl;
         }
     }
     
