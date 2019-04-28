@@ -50,7 +50,7 @@ int main()
     
     Mat image1;
     if(imageNumber == 1){
-        image1 = imread("/Users/ewigkeit/Downloads/Using-an-edge-indicator-based-weights-our-adaptive-TV-regularization-obtains-better-noise_Q320.jpg");
+        image1 = imread("house.jpg");
     }
     if(imageNumber == 2){
         image1 = imread("/Users/ewigkeit/Downloads/217021.fig.005a.jpg");
@@ -58,8 +58,14 @@ int main()
     
     
     imshow("first image", image1);
-    vector<Mat> rgb_image;
-    split(image1, rgb_image);
+    Mat image2(image1.rows,image1.cols,CV_8UC1);
+    for(int y=0;y<image1.rows;y++)
+    {
+        for(int x=0;x<image1.cols;x++)
+        {
+            image2.at<uchar>(y,x)=0;
+        }
+    }
     int midPixel;
     int anyPixel;
     int sum;
@@ -75,11 +81,11 @@ int main()
             for (int yy=-windowSize/2;yy<=windowSize/2;yy++)
             {
                 int yyy=y+yy;
-                //if(yyy<0 or yyy>=image1.cols) continue;
+                if(yyy<0 or yyy>=image1.rows) continue;
                 for(int xx=-windowSize/2;xx<=windowSize/2;xx++)
                 {
                     int xxx=xx+x;
-                    //if(xxx<0 or xxx>=image1.rows) continue;
+                    if(xxx<0 or xxx>=image1.cols*3) continue;
                     anyPixel = (int) image1.at<uchar>(yyy,xxx);
                     if(abs(midPixel-anyPixel)<sigma)
                     {

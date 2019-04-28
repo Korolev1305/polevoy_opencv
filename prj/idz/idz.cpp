@@ -42,10 +42,10 @@ int main()
     
     Mat image1;
     if(imageNumber == 1){
-        image1 = imread("Using-an-edge-indicator-based-weights-our-adaptive-TV-regularization-obtains-better-noise_Q320.jpg");
+        image1 = imread("house.jpg");
     }
     if(imageNumber == 2){
-        image1 = imread("217021.fig.005a.jpg");
+        image1 = imread("vegetables.jpg");
     }
     
     
